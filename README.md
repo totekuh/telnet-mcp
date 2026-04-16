@@ -16,17 +16,13 @@ Requires Python 3.10+.
 claude mcp add --transport stdio --scope project telnet-mcp -- telnet-mcp
 ```
 
-Configure with environment variables:
-
-| Variable | Description |
-|---|---|
-| `TELNET_HOST` | Target host (required) |
-| `TELNET_PORT` | Target port (required) |
+No environment variables needed — host and port are set dynamically via the `telnet_connect` tool.
 
 ## Tools
 
 | Tool | Description |
 |---|---|
+| `telnet_connect(host, port=23)` | Connect to a Telnet host (must be called first) |
 | `telnet_exec(command, timeout=5)` | Run a command, return clean output |
 | `telnet_read(timeout=1)` | Read raw data from connection |
 | `telnet_write(data)` | Send raw text (login, Ctrl-C `\x03`, etc.) |
@@ -38,7 +34,7 @@ Configure with environment variables:
 
 ## How It Works
 
-- **Lazy connect** — connection opens on first tool call, not at startup
+- **On-demand connect** — call `telnet_connect` with host and port to establish a session
 - **Persistent session** — connection stays open between calls
 - **Auto-reconnect** — retries once if the connection drops
 - **Async I/O** — uses telnetlib3 with asyncio
