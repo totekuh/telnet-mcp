@@ -16,8 +16,6 @@ Requires Python 3.10+.
 claude mcp add --transport stdio --scope project telnet-mcp -- telnet-mcp
 ```
 
-No environment variables needed — host and port are set dynamically via the `telnet_connect` tool.
-
 ## Tools
 
 | Tool | Description |

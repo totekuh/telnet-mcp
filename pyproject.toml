@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "telnet-mcp"
-version = "0.1.1"
+version = "0.1.2"
 description = "MCP server bridging Claude Code to a Telnet shell"
 readme = "README.md"
 license = "MIT"
